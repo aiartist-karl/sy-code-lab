@@ -1,0 +1,98 @@
+name: Build APK & IPA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build web assets
+        run: npx vite build
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Build APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SYCodeLab-Android
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+  build-ios:
+    name: Build iOS IPA
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build web asset
+        run: npx vite build
+
+      - name: Sync Capacitor
+        run: npx cap sync ios
+
+      - name: Install CocoaPods
+        working-directory: ios/App
+        run: pod install
+
+      - name: Build iOS (unsigned)
+        working-directory: ios/App
+        run: |
+          xcodebuild -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            COMPILER_INDEX_STORE_ENABLE=NO
+
+      - name: Package IPA
+        run: |
+          mkdir -p payload
+          APP_PATH=$(find ios/App/build -name "*.app" -type d | head -1)
+          if [ -z "$APP_PATH" ]; then
+            echo "Trying simulator build path..."
+            APP_PATH=$(find ios/App/build -name "*.app" -type d | head -1)
+          fi
+          cp -r "$APP_PATH" payload/
+          zip -r SYCodeLab-iOS-unsigned.ipa payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: SYCodeLab-iOS
+          path: SYCodeLab-iOS-unsigned.ipa
+          retention-days: 30
