@@ -25,7 +25,7 @@ export default function ChatPage() {
     setTimeout(() => {
       const aiMessage: Message = {
         id: `msg-${Date.now() + 1}`, role: 'assistant',
-        content: "That's a great question! Based on my analysis, here are the key points to consider. I've processed your request and here's what I found after analyzing the data.",
+        content: "这是一个很好的问题！根据我的分析，以下是需要考虑的要点。我已经处理了你的请求并找到了以下结果。",
         timestamp: Date.now(),
       };
       setMessages(prev => [...prev, aiMessage]);
@@ -70,7 +70,7 @@ export default function ChatPage() {
           <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
           </button>
-          <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} placeholder="Type a message..." className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-2.5 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} placeholder="输入消息..." className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-2.5 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           <button onClick={handleSend} disabled={!inputText.trim()} className="p-2.5 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
           </button>

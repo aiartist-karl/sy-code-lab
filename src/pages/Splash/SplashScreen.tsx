@@ -19,7 +19,7 @@ export default function SplashScreen() {
         <img src="/assets/images/splash.png" alt="SY Code Lab" className="w-48 h-48 object-contain rounded-2xl" />
         <div className="text-center">
           <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">SY Code Lab</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Code. Create. Innovate.</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">代码 · 创造 · 创新</p>
         </div>
       </div>
     </div>

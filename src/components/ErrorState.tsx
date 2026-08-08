@@ -10,14 +10,14 @@ export default function ErrorState({ type = 'network', onRetry }: ErrorStateProp
     general: '/assets/images/network-disconnected.png',
   };
   const titles = {
-    network: 'Network Error',
-    server: 'Server Error',
-    general: 'Something went wrong',
+    network: '网络错误',
+    server: '服务器错误',
+    general: '出错了',
   };
   const descs = {
-    network: 'Please check your connection and try again',
-    server: 'Our servers are experiencing issues',
-    general: 'An unexpected error occurred',
+    network: '请检查网络连接后重试',
+    server: '服务器遇到问题，请稍后再试',
+    general: '发生了意外错误',
   };
 
   return (

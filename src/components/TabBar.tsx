@@ -1,9 +1,9 @@
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 const tabs = [
-  { key: 'chat', label: 'Chat', path: '/home' },
-  { key: 'explore', label: 'Explore', path: '/explore' },
-  { key: 'me', label: 'Me', path: '/me' },
+  { key: 'chat', label: '对话', path: '/home' },
+  { key: 'explore', label: '发现', path: '/explore' },
+  { key: 'me', label: '我的', path: '/me' },
 ];
 
 export default function TabLayout() {

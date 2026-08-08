@@ -33,13 +33,13 @@ export default function BrowserPage() {
         {isLoading ? (
           <div className="flex flex-col items-center gap-4">
             <img src={theme === 'dark' ? '/assets/images/loading-dark.gif' : '/assets/images/loading-light.gif'} alt="Loading" className="w-20 h-20 object-contain" />
-            <p className="text-sm text-slate-500 dark:text-slate-400">Loading page...</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">页面加载中...</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-4 p-8 text-center">
             <img src={theme === 'dark' ? '/assets/images/browser-dark.png' : '/assets/images/browser-light.png'} alt="Browser" className="w-24 h-24 object-contain opacity-60" />
-            <div><h3 className="text-base font-medium text-slate-700 dark:text-slate-200 mb-1">AI Browser</h3><p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs">AI-powered web browsing with smart summarization</p></div>
-            <div className="mt-4 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-xl transition-colors">Start Browsing</div>
+            <div><h3 className="text-base font-medium text-slate-700 dark:text-slate-200 mb-1">AI 浏览器</h3><p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs">AI 驱动的智能网页浏览与摘要</p></div>
+            <div className="mt-4 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-xl transition-colors">开始浏览</div>
           </div>
         )}
       </div>

@@ -1,19 +1,19 @@
 import type { Agent, Message, FileItem, SearchResult } from '../types';
 
 export const mockAgents: Agent[] = [
-  { id: 'agent-1', name: 'Stock Expert', description: 'AI-powered stock market analysis and investment advice', avatar: '/assets/images/stock-expert-avatar.png', conversationCount: 1284, category: 'Finance' },
-  { id: 'agent-2', name: 'User Research', description: 'Conduct user interviews and generate research reports', avatar: '/assets/images/user-reserach-avatar.png', conversationCount: 856, category: 'Research' },
-  { id: 'agent-3', name: 'Code Assistant', description: 'Help you write, debug and optimize code in any language', avatar: '/assets/images/code.png', conversationCount: 2341, category: 'Development' },
-  { id: 'agent-4', name: 'Writing Partner', description: 'Creative writing assistant for articles, stories and more', avatar: '/assets/images/md.png', conversationCount: 567, category: 'Creative' },
-  { id: 'agent-5', name: 'Data Analyst', description: 'Analyze data, create charts and generate insights', avatar: '/assets/images/excel.png', conversationCount: 1890, category: 'Analytics' },
-  { id: 'agent-6', name: 'Presentation Pro', description: 'Design stunning presentations in minutes', avatar: '/assets/images/ppt.png', conversationCount: 743, category: 'Productivity' },
+  { id: 'agent-1', name: '股市专家', description: 'AI 驱动的股票市场分析与投资建议', avatar: '/assets/images/stock-expert-avatar.png', conversationCount: 1284, category: '金融' },
+  { id: 'agent-2', name: '用户研究', description: '进行用户访谈并生成研究报告', avatar: '/assets/images/user-reserach-avatar.png', conversationCount: 856, category: '调研' },
+  { id: 'agent-3', name: '代码助手', description: '帮助你编写、调试和优化任意语言的代码', avatar: '/assets/images/code.png', conversationCount: 2341, category: '开发' },
+  { id: 'agent-4', name: '写作搭档', description: '文章、故事等创意写作助手', avatar: '/assets/images/md.png', conversationCount: 567, category: '创作' },
+  { id: 'agent-5', name: '数据分析师', description: '分析数据、创建图表并生成洞察', avatar: '/assets/images/excel.png', conversationCount: 1890, category: '分析' },
+  { id: 'agent-6', name: '演示达人', description: '几分钟内设计精美演示文稿', avatar: '/assets/images/ppt.png', conversationCount: 743, category: '效率' },
 ];
 
 export const mockMessages: Message[] = [
-  { id: 'msg-1', role: 'user', content: 'Hello! Can you help me analyze the current market trends?', timestamp: Date.now() - 300000 },
-  { id: 'msg-2', role: 'assistant', content: "Of course! I'd be happy to help you analyze market trends. The market has shown some interesting patterns recently, with tech stocks leading the recovery and AI-related companies seeing significant growth.", timestamp: Date.now() - 240000 },
-  { id: 'msg-3', role: 'user', content: 'What sectors should I focus on for the next quarter?', timestamp: Date.now() - 180000 },
-  { id: 'msg-4', role: 'assistant', content: 'Based on current indicators, here are the top sectors to watch:\n\n1. **Artificial Intelligence** - Continued strong growth\n2. **Renewable Energy** - Policy tailwinds\n3. **Healthcare Tech** - Digital health expansion\n4. **Semiconductors** - Supply chain normalization', timestamp: Date.now() - 120000 },
+  { id: 'msg-1', role: 'user', content: '你好！你能帮我分析一下当前的市场趋势吗？', timestamp: Date.now() - 300000 },
+  { id: 'msg-2', role: 'assistant', content: "当然可以！很高兴帮你分析市场趋势。市场最近表现出一些有趣的模式，科技股领涨复苏，AI 相关公司也实现了显著增长。", timestamp: Date.now() - 240000 },
+  { id: 'msg-3', role: 'user', content: '下个季度我应该重点关注哪些行业？', timestamp: Date.now() - 180000 },
+  { id: 'msg-4', role: 'assistant', content: '根据当前指标，以下是需要关注的首选行业：\n\n1. **人工智能** - 持续强劲增长\n2. **可再生能源** - 政策利好\n3. **医疗健康科技** - 数字健康扩展\n4. **半导体** - 供应链正常化', timestamp: Date.now() - 120000 },
 ];
 
 export const mockFiles: FileItem[] = [
@@ -28,15 +28,15 @@ export const mockFiles: FileItem[] = [
 ];
 
 export const mockSearchResults: SearchResult[] = [
-  { id: 's-1', title: 'AI Writing Assistant', description: 'Generate blog posts, emails, and more', icon: '/assets/images/md.png', category: 'Writing' },
-  { id: 's-2', title: 'Image Generator', description: 'Create stunning images from text prompts', icon: '/assets/images/img.png', category: 'Design' },
-  { id: 's-3', title: 'Code Review Bot', description: 'Automated code review and suggestions', icon: '/assets/images/code.png', category: 'Development' },
-  { id: 's-4', title: 'Spreadsheet Analyzer', description: 'Analyze and visualize spreadsheet data', icon: '/assets/images/excel.png', category: 'Analytics' },
-  { id: 's-5', title: 'PDF Summarizer', description: 'Summarize long PDF documents instantly', icon: '/assets/images/pdf.png', category: 'Productivity' },
-  { id: 's-6', title: 'Presentation Maker', description: 'Create professional presentations', icon: '/assets/images/ppt.png', category: 'Productivity' },
+  { id: 's-1', title: 'AI 写作助手', description: '生成博客文章、邮件等', icon: '/assets/images/md.png', category: '写作' },
+  { id: 's-2', title: '图片生成器', description: '用文字提示创作精美图片', icon: '/assets/images/img.png', category: '设计' },
+  { id: 's-3', title: '代码审查助手', description: '自动化代码审查与建议', icon: '/assets/images/code.png', category: '开发' },
+  { id: 's-4', title: '表格分析器', description: '分析和可视化表格数据', icon: '/assets/images/excel.png', category: '分析' },
+  { id: 's-5', title: 'PDF 摘要助手', description: '快速总结长篇 PDF 文档', icon: '/assets/images/pdf.png', category: '效率' },
+  { id: 's-6', title: '演示文稿制作器', description: '创建专业演示文稿', icon: '/assets/images/ppt.png', category: '效率' },
 ];
 
 export const hotTopics = [
-  'AI Agents', 'Machine Learning', 'Web Development', 'Data Science',
-  'Product Design', 'Market Analysis', 'Code Review', 'Document AI',
+  'AI 智能体', '机器学习', '网页开发', '数据科学',
+  '产品设计', '市场分析', '代码审查', '文档 AI',
 ];

@@ -6,8 +6,8 @@ interface EmptyStateProps {
 
 export default function EmptyState({
   image = '/assets/images/task-empty.png',
-  title = 'Nothing here yet',
-  description = 'Start by creating something new',
+  title = '暂无内容',
+  description = '开始创建你的第一个项目',
 }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center py-12 px-6">

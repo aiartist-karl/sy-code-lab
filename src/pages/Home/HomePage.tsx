@@ -22,7 +22,7 @@ export default function HomePage() {
       </div>
 
       <div className="px-4 py-4">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">Recommended Agents</h2>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">推荐智能体</h2>
         <div className="grid grid-cols-2 gap-3">
           {mockAgents.map((agent) => (
             <AgentCard key={agent.id} agent={agent} onClick={() => navigate(`/agent/${agent.id}`)} />
@@ -31,15 +31,15 @@ export default function HomePage() {
       </div>
 
       <div className="px-4 py-4">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">Quick Actions</h2>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">快捷操作</h2>
         <div className="flex flex-col gap-2">
           <button onClick={() => navigate('/browser')} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 text-left">
             <img src={theme === 'dark' ? '/assets/images/browser-dark.png' : '/assets/images/browser-light.png'} alt="Browser" className="w-10 h-10 rounded-lg object-cover" />
-            <div><h3 className="text-sm font-medium text-slate-800 dark:text-slate-100">Browser</h3><p className="text-xs text-slate-500 dark:text-slate-400">AI-powered web browsing</p></div>
+            <div><h3 className="text-sm font-medium text-slate-800 dark:text-slate-100">浏览器</h3><p className="text-xs text-slate-500 dark:text-slate-400">AI 智能网页浏览</p></div>
           </button>
           <button onClick={() => navigate('/file/pdf')} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 text-left">
             <img src="/assets/images/pdf.png" alt="Files" className="w-10 h-10 rounded-lg object-cover" />
-            <div><h3 className="text-sm font-medium text-slate-800 dark:text-slate-100">File Preview</h3><p className="text-xs text-slate-500 dark:text-slate-400">Preview documents and files</p></div>
+            <div><h3 className="text-sm font-medium text-slate-800 dark:text-slate-100">文件预览</h3><p className="text-xs text-slate-500 dark:text-slate-400">预览文档和文件</p></div>
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@ function AgentCard({ agent, onClick }: { agent: Agent; onClick: () => void }) {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-400">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        <span className="text-[10px] text-slate-400">{agent.conversationCount.toLocaleString()} chats</span>
+        <span className="text-[10px] text-slate-400">{agent.conversationCount.toLocaleString()} 次对话</span>
       </div>
     </button>
   );
