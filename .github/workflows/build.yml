@@ -1,4 +1,4 @@
-name: Build APK & IPA
+name: Build Android APK & iOS IPA
 
 on:
   push:
@@ -74,31 +74,27 @@ jobs:
         working-directory: ios/App
         run: pod install
 
-      - name: Build iOS (unsigned)
+      - name: Build IPA (unsigned, for real device)
         working-directory: ios/App
         run: |
           xcodebuild -workspace App.xcworkspace \
             -scheme App \
-            -configuration Debug \
-            -destination 'generic/platform=iOS Simulator' \
+            -configuration Release \
+            -sdk iphoneos \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
             COMPILER_INDEX_STORE_ENABLE=NO
-
-      - name: Package IPA
-        run: |
-          mkdir -p payload
-          APP_PATH=$(find ios/App/build -name "*.app" -type d | head -1)
-          if [ -z "$APP_PATH" ]; then
-            echo "Trying simulator build path..."
-            APP_PATH=$(find ios/App/build -name "*.app" -type d | head -1)
-          fi
-          cp -r "$APP_PATH" payload/
-          zip -r SYCodeLab-iOS-unsigned.ipa payload
+          # Find and zip the .app
+          cd build/Build/Products/Release-iphoneos
+          mkdir -p Payload
+          cp -r *.app Payload/
+          zip -r SYCodeLab-unsigned.ipa Payload
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: SYCodeLab-iOS
-          path: SYCodeLab-iOS-unsigned.ipa
+          path: ios/App/build/Build/Products/Release-iphoneos/SYCodeLab-unsigned.ipa
           retention-days: 30
