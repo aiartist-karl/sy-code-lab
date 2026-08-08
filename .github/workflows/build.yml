@@ -25,8 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build web assets
+      - name: Build web asset
         run: npx vite build
+
+      - name: Add Android platform
+        run: npx cap add android
 
       - name: Sync Capacitor
         run: npx cap sync android
@@ -60,6 +63,9 @@ jobs:
 
       - name: Build web asset
         run: npx vite build
+
+      - name: Add iOS platform
+        run: npx cap add ios
 
       - name: Sync Capacitor
         run: npx cap sync ios
